@@ -38,7 +38,13 @@ defmodule MeterToLengthConverter do
 end
 
 # Method can also be defined in a single line
+# defmodule MeterToLengthConverter do
+#   def convert(:feet, length_in_meters), do: length_in_meters * 3.28084
+#   def convert(:inch, length_in_meters), do: length_in_meters * 39.3701
+# end
+
+# Guard clauses
 defmodule MeterToLengthConverter do
-  def convert(:feet, length_in_meters), do: length_in_meters * 3.28084
+  def convert(:feet, length_in_meters) when is_number(length_in_meters), do: length_in_meters * 3.28084
   def convert(:inch, length_in_meters), do: length_in_meters * 39.3701
 end
