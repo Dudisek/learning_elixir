@@ -9,7 +9,7 @@ defmodule Pooly.WorkerSupervisor do
 
   # Callback
 
-  def init({m,f,a}) do
+  def init({m,f,a = x}) do
     worker_opts = [restart: :permanent, function: f]
 
     children = [worker(m, a, worker_opts)]
